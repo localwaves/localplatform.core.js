@@ -3083,8 +3083,6 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
                     index,
                     words = [];
 
-                console.log(log2FromWordCount);
-
                 for (; i < wordsInPassPhrase; i++) {
                     index = random[i] % wordCount;
                     words.push(wordList[index]);

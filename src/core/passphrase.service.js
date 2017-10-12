@@ -19,8 +19,6 @@
                     index,
                     words = [];
 
-                console.log(log2FromWordCount);
-
                 for (; i < wordsInPassPhrase; i++) {
                     index = random[i] % wordCount;
                     words.push(wordList[index]);
