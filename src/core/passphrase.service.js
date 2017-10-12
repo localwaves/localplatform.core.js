@@ -7,27 +7,23 @@
             this.generate = function () {
                 var crypto = $window.crypto || $window.msCrypto;
                 var bits = 160;
-                var wordCount = 2048;
-                var random = new Uint32Array(bits / 32);
-                var passPhrase = '';
+                var wordCount = wordList.length;
+                var log2FromWordCount = Math.log(wordCount) / Math.log(2);
+                var wordsInPassPhrase = Math.ceil(bits / log2FromWordCount);
+                var random = new Uint16Array(wordsInPassPhrase);
+                var passPhrase;
 
                 crypto.getRandomValues(random);
 
                 var i = 0,
-                    l = random.length,
-                    n = wordCount,
-                    words = [],
-                    x, w1, w2, w3;
+                    index,
+                    words = [];
 
-                for (; i < l; i++) {
-                    x = random[i];
-                    w1 = x % n;
-                    w2 = (((x / n) >> 0) + w1) % n;
-                    w3 = (((((x / n) >> 0) / n) >> 0) + w2) % n;
+                console.log(log2FromWordCount);
 
-                    words.push(wordList[w1]);
-                    words.push(wordList[w2]);
-                    words.push(wordList[w3]);
+                for (; i < wordsInPassPhrase; i++) {
+                    index = random[i] % wordCount;
+                    words.push(wordList[index]);
                 }
 
                 passPhrase = words.join(' ');
