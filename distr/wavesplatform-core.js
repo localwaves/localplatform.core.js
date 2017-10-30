@@ -2222,6 +2222,14 @@ var Currency = (function () {
         verified: true
     });
 
+    var KLX = new Currency({
+        id: '7gMmyXjd4uZwaAFcfrfXQR4fAhDi8waXANb8zjqhRSfq',
+        displayName: 'Kylix',
+        shortName: 'KLX',
+        precision: 2,
+        verified: true
+    });
+
     function invalidateCache() {
         currencyCache = {};
 
@@ -2416,6 +2424,7 @@ var Currency = (function () {
         currencyCache[WTC.id] = WTC;
         currencyCache[XVCA.id] = XVCA;
         currencyCache[ANRYZE.id] = ANRYZE;
+        currencyCache[KLX.id] = KLX;
     }
 
     invalidateCache();
@@ -2624,7 +2633,8 @@ var Currency = (function () {
         VTN: VTN,
         WTC: WTC,
         XVCA: XVCA,
-        ANRYZE: ANRYZE
+        ANRYZE: ANRYZE,
+        KLX: KLX
     };
 })();
 
