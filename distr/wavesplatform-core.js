@@ -1961,7 +1961,7 @@ var Currency = (function () {
     var OCTANOX = new Currency({
         id: 'DxE8xbjHT7rXyRd2DMz5TnNNNC91Kz1SZ9k4dpH6X4JP',
         displayName: 'Octanox',
-        shortName: 'OCTANOX',
+        shortName: 'OTX',
         precision: 8,
         verified: true
     });
@@ -2230,6 +2230,14 @@ var Currency = (function () {
         verified: true
     });
 
+    var POST = new Currency({
+        id: 'DQUrzGsXp84Z4aPXLEkhgApf8TpCQqtoY87gdwUTurL7',
+        displayName: 'NEWS',
+        shortName: 'POST',
+        precision: 8,
+        verified: true
+    });
+
     function invalidateCache() {
         currencyCache = {};
 
@@ -2425,6 +2433,7 @@ var Currency = (function () {
         currencyCache[XVCA.id] = XVCA;
         currencyCache[ANRYZE.id] = ANRYZE;
         currencyCache[KLX.id] = KLX;
+        currencyCache[POST.id] = POST;
     }
 
     invalidateCache();
@@ -2634,7 +2643,8 @@ var Currency = (function () {
         WTC: WTC,
         XVCA: XVCA,
         ANRYZE: ANRYZE,
-        KLX: KLX
+        KLX: KLX,
+        POST: POST
     };
 })();
 
