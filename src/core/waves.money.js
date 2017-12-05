@@ -287,10 +287,10 @@ var Currency = (function () {
     });
 
     var mTNT = new Currency({
-        id: '6284oD9Aky3gZwwwqCFEZzvyx5qeeswAbYEtCHcMyKUR',
-        displayName: 'TrackNetToken',
+        id: '8HYDtqEuHj3RDcwR8yxEvPq1qQSB9FazC8wMHtRb2TFe',
+        displayName: 'MyTrackNet',
         shortName: 'mTNT',
-        precision: 4,
+        precision: 6,
         verified: true
     });
 
