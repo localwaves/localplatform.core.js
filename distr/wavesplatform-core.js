@@ -2238,6 +2238,30 @@ var Currency = (function () {
         verified: true
     });
 
+    var WTRY = new Currency({
+        id: '2mX5DzVKWrAJw8iwdJnV2qtoeVG9h5nTDpTqC1wb1WEN',
+        displayName: 'WTRY',
+        shortName: 'WTRY',
+        precision: 2,
+        verified: true
+    });
+
+    var JDC = new Currency({
+        id: 'Chs34HQrj37VbWHr8NDZiRZEkyEGBiPowSF4RjrRBCHn',
+        displayName: 'JustDatingCoin',
+        shortName: 'JDC',
+        precision: 8,
+        verified: true
+    });
+
+    var Blue = new Currency({
+        id: 'HkhKVMzWNE7DJ5fZJpwBMs4FMxFwZFFh9UT5GXAVdZvE',
+        displayName: 'BlueToken',
+        shortName: 'Blue',
+        precision: 0,
+        verified: true
+    });
+
     function invalidateCache() {
         currencyCache = {};
 
@@ -2434,6 +2458,9 @@ var Currency = (function () {
         currencyCache[ANRYZE.id] = ANRYZE;
         currencyCache[KLX.id] = KLX;
         currencyCache[POST.id] = POST;
+        currencyCache[WTRY.id] = WTRY;
+        currencyCache[JDC.id] = JDC;
+        currencyCache[Blue.id] = Blue;
     }
 
     invalidateCache();
@@ -2644,7 +2671,10 @@ var Currency = (function () {
         XVCA: XVCA,
         ANRYZE: ANRYZE,
         KLX: KLX,
-        POST: POST
+        POST: POST,
+        WTRY: WTRY,
+        JDC: JDC,
+        Blue: Blue
     };
 })();
 
