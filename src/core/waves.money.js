@@ -1614,6 +1614,14 @@ var Currency = (function () {
         verified: true
     });
 
+    var AKCHE = new Currency({
+        id: '3ihiQ1TJhe7fBrMc8o9EY8tQNU6phkmp8ZEyvVe4Jfhk',
+        displayName: 'AKCHE',
+        shortName: 'AKCHE',
+        precision: 4,
+        verified: true
+    });
+
     function invalidateCache() {
         currencyCache = {};
 
@@ -1813,6 +1821,7 @@ var Currency = (function () {
         currencyCache[WTRY.id] = WTRY;
         currencyCache[JDC.id] = JDC;
         currencyCache[Blue.id] = Blue;
+        currencyCache[AKCHE.id] = AKCHE;
     }
 
     invalidateCache();
@@ -2026,7 +2035,8 @@ var Currency = (function () {
         POST: POST,
         WTRY: WTRY,
         JDC: JDC,
-        Blue: Blue
+        Blue: Blue,
+        AKCHE: AKCHE
     };
 })();
 
