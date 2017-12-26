@@ -1630,6 +1630,22 @@ var Currency = (function () {
         verified: true
     });
 
+    var InPay = new Currency({
+        id: '9pPVf3gcLH3NQA2aYVRcTV2N2i32qBzA5cEMWYqBYfMi',
+        displayName: 'InPay',
+        shortName: 'InPay',
+        precision: 8,
+        verified: true
+    });
+
+    var LIQUID = new Currency({
+        id: '7FzrHF1pueRFrPEupz6oiVGTUZqe8epvC7ggWUx8n1bd',
+        displayName: 'Liquid',
+        shortName: 'LIQUID',
+        precision: 8,
+        verified: true
+    });
+
     function invalidateCache() {
         currencyCache = {};
 
@@ -1831,6 +1847,8 @@ var Currency = (function () {
         currencyCache[Blue.id] = Blue;
         currencyCache[AKCHE.id] = AKCHE;
         currencyCache[TDX.id] = TDX;
+        currencyCache[InPay.id] = InPay;
+        currencyCache[LIQUID.id] = LIQUID;
     }
 
     invalidateCache();
@@ -2046,7 +2064,9 @@ var Currency = (function () {
         JDC: JDC,
         Blue: Blue,
         AKCHE: AKCHE,
-        TDX: TDX
+        TDX: TDX,
+        InPay: InPay,
+        LIQUID: LIQUID
     };
 })();
 
