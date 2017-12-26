@@ -2270,6 +2270,14 @@ var Currency = (function () {
         verified: true
     });
 
+    var TDX = new Currency({
+        id: '3QvxP6YFBKpWJSMAfYtL8Niv8KmmKsnpb9uQwQpg8QN2',
+        displayName: 'Tidex',
+        shortName: 'TDX',
+        precision: 2,
+        verified: true
+    });
+
     function invalidateCache() {
         currencyCache = {};
 
@@ -2470,6 +2478,7 @@ var Currency = (function () {
         currencyCache[JDC.id] = JDC;
         currencyCache[Blue.id] = Blue;
         currencyCache[AKCHE.id] = AKCHE;
+        currencyCache[TDX.id] = TDX;
     }
 
     invalidateCache();
@@ -2684,7 +2693,8 @@ var Currency = (function () {
         WTRY: WTRY,
         JDC: JDC,
         Blue: Blue,
-        AKCHE: AKCHE
+        AKCHE: AKCHE,
+        TDX: TDX
     };
 })();
 
