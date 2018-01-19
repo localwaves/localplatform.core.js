@@ -2294,6 +2294,22 @@ var Currency = (function () {
         verified: true
     });
 
+    var TN = new Currency({
+        id: 'HxQSdHu1X4ZVXmJs232M6KfZi78FseeWaEXJczY6UxJ3',
+        displayName: 'TurtleNode',
+        shortName: 'TN',
+        precision: 2,
+        verified: true
+    });
+
+    var ecoNAN = new Currency({
+        id: '53sxSVvj3PJkZhZKz6gLc5coXxAyC7zbgo5RtXfqRsym',
+        displayName: 'eco-NAN',
+        shortName: 'eco-NAN',
+        precision: 8,
+        verified: true
+    });
+
     function invalidateCache() {
         currencyCache = {};
 
@@ -2497,6 +2513,8 @@ var Currency = (function () {
         currencyCache[TDX.id] = TDX;
         currencyCache[InPay.id] = InPay;
         currencyCache[LIQUID.id] = LIQUID;
+        currencyCache[TN.id] = TN;
+        currencyCache[ecoNAN.id] = ecoNAN;
     }
 
     invalidateCache();
@@ -2714,7 +2732,9 @@ var Currency = (function () {
         AKCHE: AKCHE,
         TDX: TDX,
         InPay: InPay,
-        LIQUID: LIQUID
+        LIQUID: LIQUID,
+        TN: TN,
+        ecoNAN: ecoNAN
     };
 })();
 
