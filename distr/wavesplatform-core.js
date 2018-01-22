@@ -2302,10 +2302,10 @@ var Currency = (function () {
         verified: true
     });
 
-    var ecoNAN = new Currency({
+    var ENAN = new Currency({
         id: '53sxSVvj3PJkZhZKz6gLc5coXxAyC7zbgo5RtXfqRsym',
         displayName: 'eco-NAN',
-        shortName: 'eco-NAN',
+        shortName: 'ENAN',
         precision: 8,
         verified: true
     });
@@ -2514,7 +2514,7 @@ var Currency = (function () {
         currencyCache[InPay.id] = InPay;
         currencyCache[LIQUID.id] = LIQUID;
         currencyCache[TN.id] = TN;
-        currencyCache[ecoNAN.id] = ecoNAN;
+        currencyCache[ENAN.id] = ENAN;
     }
 
     invalidateCache();
@@ -2734,7 +2734,7 @@ var Currency = (function () {
         InPay: InPay,
         LIQUID: LIQUID,
         TN: TN,
-        ecoNAN: ecoNAN
+        ENAN: ENAN
     };
 })();
 
