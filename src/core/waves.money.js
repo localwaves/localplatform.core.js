@@ -1662,6 +1662,14 @@ var Currency = (function () {
         verified: true
     });
 
+    var ContestCoin = new Currency({
+        id: '2ULyqYTJfrDknc2m5iPPkrvpHtRiB57nHag4RCSwZWQS',
+        displayName: 'ContestCoin',
+        shortName: 'ContestCoin',
+        precision: 0,
+        verified: true
+    });
+
     function invalidateCache() {
         currencyCache = {};
 
@@ -1867,6 +1875,7 @@ var Currency = (function () {
         currencyCache[LIQUID.id] = LIQUID;
         currencyCache[TN.id] = TN;
         currencyCache[ENAN.id] = ENAN;
+        currencyCache[ContestCoin.id] = ContestCoin;
     }
 
     invalidateCache();
@@ -2086,7 +2095,8 @@ var Currency = (function () {
         InPay: InPay,
         LIQUID: LIQUID,
         TN: TN,
-        ENAN: ENAN
+        ENAN: ENAN,
+        ContestCoin: ContestCoin
     };
 })();
 
