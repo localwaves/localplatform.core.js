@@ -1670,6 +1670,14 @@ var Currency = (function () {
         verified: true
     });
 
+    var SMQ = new Currency({
+        id: 'CBik4JEmsoPZKKATnShULYj2ebUao5aada9N1XGznEET',
+        displayName: 'Simdaq Token',
+        shortName: 'SMQ',
+        precision: 8,
+        verified: true
+    });
+
     function invalidateCache() {
         currencyCache = {};
 
@@ -1876,6 +1884,7 @@ var Currency = (function () {
         currencyCache[TN.id] = TN;
         currencyCache[ENAN.id] = ENAN;
         currencyCache[ContestCoin.id] = ContestCoin;
+        currencyCache[SMQ.id] = SMQ;
     }
 
     invalidateCache();
@@ -2096,7 +2105,8 @@ var Currency = (function () {
         LIQUID: LIQUID,
         TN: TN,
         ENAN: ENAN,
-        ContestCoin: ContestCoin
+        ContestCoin: ContestCoin,
+        SMQ: SMQ
     };
 })();
 
