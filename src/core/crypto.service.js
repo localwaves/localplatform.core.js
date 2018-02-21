@@ -169,6 +169,16 @@
             this.verify = function(senderPublicKey, dataToSign, signatureBytes) {
                 return axlsign.verify(senderPublicKey, dataToSign, signatureBytes);
             };
+            
+            // function returns base58 encoded shared key from base58 encoded a private
+            // and b public keys
+            this.getSharedKey = function (aEncodedPrivateKey, bEncodedPublicKey) {
+                var aPrivateKey = this.base58.decode(aEncodedPrivateKey);
+                var bPrivateKey = this.base58.decode(bEncodedPublicKey);
+                var sharedKey = axlsign.sharedKey(aPrivateKey, bPrivateKey);
+
+                return this.base58.encode(sharedKey);
+            };
 
             this.encryptWalletSeed = function (seed, key) {
                 var aesKey = prepareKey(key);
