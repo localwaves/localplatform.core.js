@@ -174,10 +174,15 @@
             // and b public keys
             this.getSharedKey = function (aEncodedPrivateKey, bEncodedPublicKey) {
                 var aPrivateKey = this.base58.decode(aEncodedPrivateKey);
-                var bPrivateKey = this.base58.decode(bEncodedPublicKey);
-                var sharedKey = axlsign.sharedKey(aPrivateKey, bPrivateKey);
+                var bPublicKey = this.base58.decode(bEncodedPublicKey);
+                var sharedKey = axlsign.sharedKey(aPrivateKey, bPublicKey);
 
                 return this.base58.encode(sharedKey);
+            };
+
+            // function can be used for sharedKey preparation, as recommended in: https://github.com/wavesplatform/curve25519-js
+            this.prepareKey = function (key) {
+                return prepareKey(key);
             };
 
             this.encryptWalletSeed = function (seed, key) {
