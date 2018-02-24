@@ -4493,6 +4493,9 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
 
                     case Currency.ZEC.id:
                         return 'WZEC';
+
+                    case Currency.BCC.id:
+                        return 'WBCH';
                 }
 
                 unsupportedCurrency(currency);
@@ -4519,6 +4522,9 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
 
                     case Currency.ZEC.id:
                         return 'ZEC';
+
+                    case Currency.BCC.id:
+                        return 'BCH';
                 }
 
                 unsupportedCurrency(currency);
