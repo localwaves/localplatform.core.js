@@ -2238,10 +2238,10 @@ var Currency = (function () {
         verified: true
     });
 
-    var WTRY = new Currency({
+    var TRY = new Currency({
         id: '2mX5DzVKWrAJw8iwdJnV2qtoeVG9h5nTDpTqC1wb1WEN',
-        displayName: 'WTRY',
-        shortName: 'WTRY',
+        displayName: 'TRY',
+        shortName: 'TRY',
         precision: 2,
         verified: true
     });
@@ -2526,7 +2526,7 @@ var Currency = (function () {
         currencyCache[ANRYZE.id] = ANRYZE;
         currencyCache[KLX.id] = KLX;
         currencyCache[POST.id] = POST;
-        currencyCache[WTRY.id] = WTRY;
+        currencyCache[TRY.id] = TRY;
         currencyCache[JDC.id] = JDC;
         currencyCache[Blue.id] = Blue;
         currencyCache[AKCHE.id] = AKCHE;
@@ -2749,7 +2749,7 @@ var Currency = (function () {
         ANRYZE: ANRYZE,
         KLX: KLX,
         POST: POST,
-        WTRY: WTRY,
+        TRY: TRY,
         JDC: JDC,
         Blue: Blue,
         AKCHE: AKCHE,
