@@ -2326,6 +2326,14 @@ var Currency = (function () {
         verified: true
     });
 
+    var DASH = new Currency({
+        id: 'B3uGHFRpSUuGEDWjqB9LWWxafQj8VTvpMucEyoxzws5H',
+        displayName: 'Dash token',
+        shortName: 'DASH',
+        precision: 8,
+        verified: true
+    });
+
     function isCached(assetId) {
         return currencyCache.hasOwnProperty(assetId);
     }
@@ -2759,7 +2767,8 @@ var Currency = (function () {
         TN: TN,
         ENAN: ENAN,
         ContestCoin: ContestCoin,
-        SMQ: SMQ
+        SMQ: SMQ,
+        DASH: DASH
     };
 })();
 
