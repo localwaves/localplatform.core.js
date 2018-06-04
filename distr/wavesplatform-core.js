@@ -2981,7 +2981,8 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
             START_LEASING_TRANSACTION_TYPE: 8,
             CANCEL_LEASING_TRANSACTION_TYPE: 9,
             CREATE_ALIAS_TRANSACTION_TYPE: 10,
-            MASS_PAYMENT_TRANSACTION_TYPE: 11
+            MASS_PAYMENT_TRANSACTION_TYPE: 11,
+            DATA_TRANSACTION_TYPE: 12
         });
 })();
 
