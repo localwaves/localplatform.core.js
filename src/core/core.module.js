@@ -1,10 +1,10 @@
 (function() {
     'use strict';
 
-    angular.module('waves.core', [
-        'waves.core.services',
-        'waves.core.constants',
-        'waves.core.filter',
-        'waves.core.directives'
+    angular.module('local.core', [
+        'local.core.services',
+        'local.core.constants',
+        'local.core.filter',
+        'local.core.directives'
     ]);
 })();

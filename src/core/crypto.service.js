@@ -6,7 +6,7 @@
     'use strict';
 
     angular
-        .module('waves.core.services')
+        .module('local.core.services')
         .service('cryptoService', ['constants.network', '$window', function(constants, window) {
 
             // private version of getNetworkId byte in order to avoid circular dependency
@@ -169,7 +169,7 @@
             this.verify = function(senderPublicKey, dataToSign, signatureBytes) {
                 return axlsign.verify(senderPublicKey, dataToSign, signatureBytes);
             };
-            
+
             // function returns base58 encoded shared key from base58 encoded a private
             // and b public keys
             this.getSharedKey = function (aEncodedPrivateKey, bEncodedPublicKey) {

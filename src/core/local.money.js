@@ -1,12 +1,12 @@
 /******************************************************************************
- * Copyright © 2016 The Waves Developers.                                *
+ * Copyright © 2016 The Local Developers.                                *
  *                                                                            *
  * See the LICENSE files at                                                   *
  * the top-level directory of this distribution for the individual copyright  *
  * holder information and the developer policies on copyright and licensing.  *
  *                                                                            *
  * Unless otherwise agreed in a custom licensing agreement, no part of the    *
- * Waves software, including this file, may be copied, modified, propagated,  *
+ * Local software, including this file, may be copied, modified, propagated,  *
  * or distributed except according to the terms contained in the LICENSE      *
  * file.                                                                      *
  *                                                                            *
@@ -46,10 +46,10 @@ var Currency = (function () {
         return this.displayName;
     };
 
-    var WAVES = new Currency({
+    var LOCAL = new Currency({
         id: '',
-        displayName: 'Waves',
-        shortName: 'WAVES',
+        displayName: 'Local',
+        shortName: 'LOCAL',
         precision: 8,
         verified: true
     });
@@ -1693,7 +1693,7 @@ var Currency = (function () {
     function invalidateCache() {
         currencyCache = {};
 
-        currencyCache[WAVES.id] = WAVES;
+        currencyCache[LOCAL.id] = LOCAL;
         currencyCache[BTC.id] = BTC;
         currencyCache[BCH.id] = BCH;
         currencyCache[ETH.id] = ETH;
@@ -1916,7 +1916,7 @@ var Currency = (function () {
         },
         invalidateCache: invalidateCache,
         isCached: isCached,
-        WAVES: WAVES,
+        LOCAL: LOCAL,
         BTC: BTC,
         BCH: BCH,
         ETH: ETH,
@@ -2271,5 +2271,4 @@ Money.fromCoins = function (amount, currency) {
 };
 
 // set up decimal to format 0.00000001 as is instead of 1e-8
-Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
-
+Decimal.config({toExpNeg: -(Currency.LOCAL.precision + 1)});

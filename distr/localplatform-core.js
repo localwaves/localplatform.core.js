@@ -647,14 +647,14 @@ var converters = function() {
 	}
 }();
 /******************************************************************************
- * Copyright © 2016 The Waves Developers.                                *
+ * Copyright © 2016 The Local Developers.                                *
  *                                                                            *
  * See the LICENSE files at                                                   *
  * the top-level directory of this distribution for the individual copyright  *
  * holder information and the developer policies on copyright and licensing.  *
  *                                                                            *
  * Unless otherwise agreed in a custom licensing agreement, no part of the    *
- * Waves software, including this file, may be copied, modified, propagated,  *
+ * Local software, including this file, may be copied, modified, propagated,  *
  * or distributed except according to the terms contained in the LICENSE      *
  * file.                                                                      *
  *                                                                            *
@@ -694,10 +694,10 @@ var Currency = (function () {
         return this.displayName;
     };
 
-    var WAVES = new Currency({
+    var LOCAL = new Currency({
         id: '',
-        displayName: 'Waves',
-        shortName: 'WAVES',
+        displayName: 'Local',
+        shortName: 'LOCAL',
         precision: 8,
         verified: true
     });
@@ -2341,7 +2341,7 @@ var Currency = (function () {
     function invalidateCache() {
         currencyCache = {};
 
-        currencyCache[WAVES.id] = WAVES;
+        currencyCache[LOCAL.id] = LOCAL;
         currencyCache[BTC.id] = BTC;
         currencyCache[BCH.id] = BCH;
         currencyCache[ETH.id] = ETH;
@@ -2564,7 +2564,7 @@ var Currency = (function () {
         },
         invalidateCache: invalidateCache,
         isCached: isCached,
-        WAVES: WAVES,
+        LOCAL: LOCAL,
         BTC: BTC,
         BCH: BCH,
         ETH: ETH,
@@ -2919,17 +2919,17 @@ Money.fromCoins = function (amount, currency) {
 };
 
 // set up decimal to format 0.00000001 as is instead of 1e-8
-Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
+Decimal.config({toExpNeg: -(Currency.LOCAL.precision + 1)});
 
 
 (function() {
     'use strict';
 
-    angular.module('waves.core', [
-        'waves.core.services',
-        'waves.core.constants',
-        'waves.core.filter',
-        'waves.core.directives'
+    angular.module('local.core', [
+        'local.core.services',
+        'local.core.constants',
+        'local.core.filter',
+        'local.core.directives'
     ]);
 })();
 
@@ -2937,7 +2937,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
     'use strict';
 
     angular
-        .module('waves.core.constants', [])
+        .module('local.core.constants', [])
         .constant('constants.network', {
             NETWORK_NAME: 'devel', // 'devnet', 'testnet', 'mainnet'
             ADDRESS_VERSION: 1,
@@ -2946,7 +2946,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
         });
 
     angular
-        .module('waves.core.constants')
+        .module('local.core.constants')
         .constant('constants.address', {
             RAW_ADDRESS_LENGTH : 35,
             ADDRESS_PREFIX: '1W',
@@ -2954,13 +2954,13 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
         });
 
     angular
-        .module('waves.core.constants')
+        .module('local.core.constants')
         .constant('constants.features', {
             ALIAS_VERSION: 2
         });
 
     angular
-        .module('waves.core.constants')
+        .module('local.core.constants')
         .constant('constants.ui', {
             MINIMUM_PAYMENT_AMOUNT : 1e-8,
             MINIMUM_TRANSACTION_FEE : 0.001,
@@ -2970,7 +2970,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
         });
 
     angular
-        .module('waves.core.constants')
+        .module('local.core.constants')
         .constant('constants.transactions', {
             PAYMENT_TRANSACTION_TYPE : 2,
             ASSET_ISSUE_TRANSACTION_TYPE: 3,
@@ -2990,13 +2990,13 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
 
 (function () {
     'use strict';
-    angular.module('waves.core.directives', []);
+    angular.module('local.core.directives', []);
 })();
 
 (function() {
     'use strict';
 
-    angular.module('waves.core.services', ['waves.core', 'restangular'])
+    angular.module('local.core.services', ['local.core', 'restangular'])
         .config(function () {
             if (!String.prototype.startsWith) {
                 Object.defineProperty(String.prototype, 'startsWith', {
@@ -3023,7 +3023,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
  */
 (function () {
     'use strict';
-    angular.module('waves.core.filter', []);
+    angular.module('local.core.filter', []);
 })();
 
 //https://github.com/bitcoin/bips/blob/master/bip-0039/bip-0039-wordlists.md
@@ -3031,7 +3031,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
     'use strict';
 
     angular
-        .module('waves.core.services')
+        .module('local.core.services')
         .constant('wordList', [
             'abandon', 'ability', 'able', 'about', 'above', 'absent', 'absorb', 'abstract', 'absurd', 'abuse', 'access',
             'accident', 'account', 'accuse', 'achieve', 'acid', 'acoustic', 'acquire', 'across', 'act', 'action',
@@ -3224,7 +3224,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
     'use strict';
 
     angular
-        .module('waves.core.services')
+        .module('local.core.services')
         .service('passPhraseService', ['wordList', '$window', function (wordList, $window) {
             this.generate = function () {
                 var crypto = $window.crypto || $window.msCrypto;
@@ -3259,7 +3259,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
     'use strict';
 
     angular
-        .module('waves.core.services')
+        .module('local.core.services')
         .service('accountService', ['storageService', '$q', function (storageService, $q) {
             var stateCache;
 
@@ -3327,7 +3327,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
     'use strict';
 
     angular
-        .module('waves.core.services')
+        .module('local.core.services')
         .service('addressService', ['constants.address', function (constants) {
             this.cleanupOptionalPrefix = function(displayAddress) {
                 if (displayAddress.length <= 30) {
@@ -3360,7 +3360,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
     'use strict';
 
     angular
-        .module('waves.core.services')
+        .module('local.core.services')
         .service('cryptoService', ['constants.network', '$window', function(constants, window) {
 
             // private version of getNetworkId byte in order to avoid circular dependency
@@ -3523,7 +3523,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
             this.verify = function(senderPublicKey, dataToSign, signatureBytes) {
                 return axlsign.verify(senderPublicKey, dataToSign, signatureBytes);
             };
-            
+
             // function returns base58 encoded shared key from base58 encoded a private
             // and b public keys
             this.getSharedKey = function (aEncodedPrivateKey, bEncodedPublicKey) {
@@ -3534,7 +3534,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
                 return this.base58.encode(sharedKey);
             };
 
-            // function can be used for sharedKey preparation, as recommended in: https://github.com/wavesplatform/curve25519-js
+            // function can be used for sharedKey preparation, as recommended in: https://github.com/localwaves/curve25519-js
             this.prepareKey = function (key) {
                 return prepareKey(key);
             };
@@ -3693,7 +3693,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
     AssetService.$inject = ['signService', 'validateService', 'utilityService', 'cryptoService'];
 
     angular
-        .module('waves.core.services')
+        .module('local.core.services')
         .service('assetService', AssetService);
 })();
 
@@ -3733,7 +3733,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
     AliasRequestService.$inject = ['signService', 'utilityService', 'validateService'];
 
     angular
-        .module('waves.core.services')
+        .module('local.core.services')
         .service('aliasRequestService', AliasRequestService);
 })();
 
@@ -3804,7 +3804,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
     LeasingRequestService.$inject = ['signService', 'utilityService', 'validateService'];
 
     angular
-        .module('waves.core.services')
+        .module('local.core.services')
         .service('leasingRequestService', LeasingRequestService);
 })();
 
@@ -3812,7 +3812,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
     'use strict';
 
     angular
-        .module('waves.core.services')
+        .module('local.core.services')
         .service('apiService', ['Restangular', 'cryptoService', function (rest, cryptoService) {
             var blocksApi = rest.all('blocks');
 
@@ -3947,7 +3947,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
     var BASE58_REGEX = new RegExp('^[123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz]{0,}$');
 
     angular
-        .module('waves.core.services')
+        .module('local.core.services')
         .service('utilityService', ['constants.network', 'cryptoService', function (constants, cryptoService) {
             var self = this;
 
@@ -4022,9 +4022,9 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
     'use strict';
 
     angular
-        .module('waves.core.services')
+        .module('local.core.services')
         .service('chromeStorageService', ['$q', function ($q) {
-            var $key = 'WavesAccounts';
+            var $key = 'LocalAccounts';
             var self = this;
 
             self.saveState = function (state) {
@@ -4087,12 +4087,12 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
     'use strict';
 
     angular
-        .module('waves.core.services')
+        .module('local.core.services')
         .service('html5StorageService', ['constants.network', '$window', '$q', function(constants, window, $q) {
             if (angular.isUndefined(constants.NETWORK_NAME))
                 throw new Error('Network name hasn\'t been configured');
 
-            var $key = 'Waves' + constants.NETWORK_NAME;
+            var $key = 'Local' + constants.NETWORK_NAME;
 
             this.saveState = function(state) {
                 var serialized = angular.toJson(state);
@@ -4127,7 +4127,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
     var STORAGE_STRUCTURE_VERSION = 1;
 
     angular
-        .module('waves.core.services')
+        .module('local.core.services')
         .provider('storageService', [function () {
             function getStorageVersion () {
                 return STORAGE_STRUCTURE_VERSION;
@@ -4163,7 +4163,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
     'use strict';
 
     angular
-        .module('waves.core.services')
+        .module('local.core.services')
         .service('formattingService', ['$window', '$filter', function (window, $filter) {
 
             var LOCALE_DATE_FORMATS = {
@@ -4415,7 +4415,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
  */
 (function () {
     'use strict';
-    angular.module('waves.core.filter')
+    angular.module('local.core.filter')
         .filter('formatting', ['formattingService', function (formattingService) {
             return function(timestamp, dateOnly) {
                 if (angular.isUndefined(dateOnly)) {
@@ -4431,14 +4431,14 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
     'use strict';
 
     angular
-        .module('waves.core.services')
+        .module('local.core.services')
         .service('coinomatCurrencyMappingService', [function () {
             function unsupportedCurrency(currency) {
                 throw new Error('Unsupported currency: ' + currency.displayName);
             }
 
             /**
-             * Currency codes for Waves Platform
+             * Currency codes for LOCAL Platform
              * @param {Currency} currency
              * @returns {string} currency code
              */
@@ -4447,8 +4447,8 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
                     case Currency.BTC.id:
                         return 'WBTC';
 
-                    case Currency.WAVES.id:
-                        return 'WAVES';
+                    case Currency.LOCAL.id:
+                        return 'LOCAL';
 
                     case Currency.ETH.id:
                         return 'WETH';
@@ -4476,8 +4476,8 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
                     case Currency.BTC.id:
                         return 'BTC';
 
-                    case Currency.WAVES.id:
-                        return 'WAVES';
+                    case Currency.LOCAL.id:
+                        return 'LOCAL';
 
                     case Currency.ETH.id:
                         return 'ETH';
@@ -4554,11 +4554,11 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
         }
         /* jscs:enable requireCamelCaseOrUpperCaseIdentifiers */
 
-        this.getDepositDetails = function (sourceCurrency, targetCurrency, wavesRecipientAddress) {
+        this.getDepositDetails = function (sourceCurrency, targetCurrency, localRecipientAddress) {
             var gatewayCurrencyCode = mappingService.gatewayCurrencyCode(sourceCurrency);
             var platformCurrencyCode = mappingService.platformCurrencyCode(targetCurrency);
 
-            return loadPaymentDetails(gatewayCurrencyCode, platformCurrencyCode, wavesRecipientAddress);
+            return loadPaymentDetails(gatewayCurrencyCode, platformCurrencyCode, localRecipientAddress);
         };
 
         this.getWithdrawDetails = function (currency, recipientAddress) {
@@ -4583,7 +4583,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
     CoinomatService.$inject = ['CoinomatRestangular', 'coinomatCurrencyMappingService'];
 
     angular
-        .module('waves.core.services')
+        .module('local.core.services')
         .service('coinomatService', CoinomatService);
 })();
 
@@ -4622,22 +4622,22 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
     CoinomatFiatService.$inject = ['CoinomatRestangular', 'coinomatCurrencyMappingService'];
 
     angular
-        .module('waves.core.services')
+        .module('local.core.services')
         .service('coinomatFiatService', CoinomatFiatService);
 })();
 
 (function () {
     'use strict';
 
-    var WAVES_ASSET_ID = 'WAVES',
-        WAVES_PRECISION = 8;
+    var LOCAL_ASSET_ID = 'LOCAL',
+        LOCAL_PRECISION = 8;
 
     function denormalizeId(id) {
-        return id === WAVES_ASSET_ID ? '' : id;
+        return id === LOCAL_ASSET_ID ? '' : id;
     }
 
     function normalizeId(id) {
-        return id ? id : WAVES_ASSET_ID;
+        return id ? id : LOCAL_ASSET_ID;
     }
 
     function MatcherApiService(rest, utilityService, cryptoService, validateService) {
@@ -4722,13 +4722,13 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
                         amountAsset: Currency.create({
                             id: denormalizeId(market.amountAsset),
                             displayName: market.amountAssetName,
-                            precision: market.amountAssetInfo ? market.amountAssetInfo.decimals : WAVES_PRECISION
+                            precision: market.amountAssetInfo ? market.amountAssetInfo.decimals : LOCAL_PRECISION
                         }),
                         priceAssetInfo: market.priceAssetInfo,
                         priceAsset: Currency.create({
                             id: denormalizeId(market.priceAsset),
                             displayName: market.priceAssetName,
-                            precision: market.priceAssetInfo ? market.priceAssetInfo.decimals : WAVES_PRECISION
+                            precision: market.priceAssetInfo ? market.priceAssetInfo.decimals : LOCAL_PRECISION
                         }),
                         created: market.created
                     };
@@ -4760,7 +4760,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
     MatcherApiService.$inject = ['MatcherRestangular', 'utilityService', 'cryptoService', 'validateService'];
 
     angular
-        .module('waves.core.services')
+        .module('local.core.services')
         .service('matcherApiService', MatcherApiService);
 })();
 
@@ -4772,7 +4772,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
         DEFAULT_LIMIT = 50;
 
     function serializeId(id) {
-        return id === '' ? 'WAVES' : id;
+        return id === '' ? 'LOCAL' : id;
     }
 
     function DatafeedApiService(rest) {
@@ -4834,7 +4834,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
     DatafeedApiService.$inject = ['DatafeedRestangular'];
 
     angular
-        .module('waves.core.services')
+        .module('local.core.services')
         .service('datafeedApiService', DatafeedApiService);
 })();
 
@@ -4916,7 +4916,7 @@ Decimal.config({toExpNeg: -(Currency.WAVES.precision + 1)});
     MatcherRequestService.$inject = ['signService', 'utilityService', 'validateService'];
 
     angular
-        .module('waves.core.services')
+        .module('local.core.services')
         .service('matcherRequestService', MatcherRequestService);
 })();
 
@@ -5104,7 +5104,7 @@ var OrderPrice = (function () {
     SignService.$inject = ['constants.transactions', 'constants.features', 'cryptoService', 'utilityService'];
 
     angular
-        .module('waves.core.services')
+        .module('local.core.services')
         .service('signService', SignService);
 })();
 
@@ -5112,7 +5112,7 @@ var OrderPrice = (function () {
     'use strict';
 
     angular
-        .module('waves.core.services')
+        .module('local.core.services')
         .service('validateService', function () {
             var self = this;
 
@@ -5143,8 +5143,8 @@ var OrderPrice = (function () {
                     throw new Error('Token decimal places amount hasn\'t been set');
                 }
 
-                if (issue.fee.currency !== Currency.WAVES) {
-                    throw new Error('Transaction fee must be nominated in Waves');
+                if (issue.fee.currency !== Currency.LOCAL) {
+                    throw new Error('Transaction fee must be nominated in Local');
                 }
             };
 
@@ -5163,8 +5163,8 @@ var OrderPrice = (function () {
             };
 
             self.validateAssetReissue = function (reissue) {
-                if (reissue.totalTokens.currency === Currency.WAVES) {
-                    throw new Error('Reissuing Waves is not allowed.');
+                if (reissue.totalTokens.currency === Currency.LOCAL) {
+                    throw new Error('Reissuing Local is not allowed.');
                 }
 
                 if (angular.isUndefined(reissue.totalTokens)) {
@@ -5175,8 +5175,8 @@ var OrderPrice = (function () {
                     throw new Error('Transaction fee hasn\'t been set');
                 }
 
-                if (reissue.fee.currency !== Currency.WAVES) {
-                    throw new Error('Transaction fee must be nominated in Waves');
+                if (reissue.fee.currency !== Currency.LOCAL) {
+                    throw new Error('Transaction fee must be nominated in Local');
                 }
             };
         });

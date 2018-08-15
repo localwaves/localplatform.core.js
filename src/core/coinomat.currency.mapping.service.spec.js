@@ -2,7 +2,7 @@ describe('Coinomat.Currency.Mapping.Service', function() {
     var mappingService;
 
     // Initialization of the module before each test case
-    beforeEach(module('waves.core.services'));
+    beforeEach(module('local.core.services'));
 
     // Injection of dependencies
     beforeEach(inject(function($injector) {
@@ -19,8 +19,8 @@ describe('Coinomat.Currency.Mapping.Service', function() {
         expect(mappingService.gatewayCurrencyCode(Currency.BTC)).toEqual('BTC');
     });
 
-    it('should return correct codes for waves', function() {
-        expect(mappingService.gatewayCurrencyCode(Currency.WAVES)).toEqual('WAVES');
-        expect(mappingService.platformCurrencyCode(Currency.WAVES)).toEqual('WAVES');
+    it('should return correct codes for local', function() {
+        expect(mappingService.gatewayCurrencyCode(Currency.LOCAL)).toEqual('LOCAL');
+        expect(mappingService.platformCurrencyCode(Currency.LOCAL)).toEqual('LOCAL');
     });
 });
